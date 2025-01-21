@@ -50,11 +50,27 @@ console.log(tx);
 function sum(x, y) {
     return x + y;
 }
+//type of function's args
 function naming(firstName, lastName, middleName = 'defaulr') {
     return firstName + middleName + lastName;
 }
+//type of function
 function callFunction(func, fname, lname, mname) {
-    console.log(fname, lname, mname, 'alsdf');
     console.log(func(fname, lname, mname));
 }
 callFunction(naming, 'ameen', 'dv', 'haha');
+//another example for multiple funcs as args
+function mul(x, y) {
+    return x * y;
+}
+function div(x, y) {
+    return x / y;
+}
+function applyFunc(funcs, values) {
+    const result = [];
+    for (let i = 0; i < funcs.length; i++) {
+        result.push(funcs[i](values[i][0], values[i][1]));
+    }
+    return result;
+}
+console.log(applyFunc([mul, div], [[1, 2], [3, 4]]));

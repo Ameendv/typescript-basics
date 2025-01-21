@@ -93,3 +93,28 @@ function callFunction(
 }
 
 callFunction(naming , 'ameen', 'dv','haha')
+
+
+
+//another example for multiple funcs as args
+function mul(x:number, y: number): number{
+    return x*y
+}
+
+function div(x: number, y: number): number{
+    return x/y
+}
+
+function applyFunc(
+    funcs: ((a: number, b: number) => number)[], 
+    values: number[][] ) : number[]{
+        const result = [] as number[]
+
+        for(let i=0;i<funcs.length;i++){
+            result.push(funcs[i](values[i][0], values[i][1]))
+        }
+
+        return result
+}
+
+console.log(applyFunc([mul, div], [[1,2],[3,4]]))
